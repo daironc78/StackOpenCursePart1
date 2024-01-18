@@ -1,17 +1,44 @@
-const App = () => {
-  const [ counter, setCounter ] = useState(0)
+import ReactDOMClient from 'react-dom/client'
 
-  setTimeout(
-    () => setCounter(counter + 1),
-    1000
+const App = (props) => {
+  let counter = 1
+
+
+  
+const root = () => {
+  ReactDOMClient.createRoot(document.getElementById('root')).render(
+    <App counter={counter} />
   )
+  
+}
 
+function renderApp() {
+  root.render
+}
 
-  console.log('rendering...', counter)
+renderApp()
+counter += 1
+renderApp()
+counter += 1
+renderApp()
 
   return (
     <div>{counter}</div>
   )
+
+  
 }
 
+const Hello = ({ name, age }) => {
+  const bornYear = () => new Date().getFullYear() - age
+
+  return (
+    <div>
+      <p>
+        Hello {name}, you are {age} years old
+      </p>
+      <p>So you were probably born in {bornYear()}</p>
+    </div>
+  )
+}
 export default App
