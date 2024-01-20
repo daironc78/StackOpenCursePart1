@@ -1,44 +1,43 @@
-import ReactDOMClient from 'react-dom/client'
+import { useState } from 'react'
+const App = () => {
 
-const App = (props) => {
-  let counter = 1
+  const [ counter, setCounter ] = useState(0)
 
+  const Display = (props) => {
+    return (
+      <div>{props.counter}</div>
+    )
+  }
 
-  
-const root = () => {
-  ReactDOMClient.createRoot(document.getElementById('root')).render(
-    <App counter={counter} />
-  )
-  
-}
+  const Button = (props) => {
+    return (
+      <button onClick={props.handleClick}>
+        {props.text}
+      </button>
+    )
+  }
 
-function renderApp() {
-  root.render
-}
-
-renderApp()
-counter += 1
-renderApp()
-counter += 1
-renderApp()
-
-  return (
-    <div>{counter}</div>
-  )
-
-  
-}
-
-const Hello = ({ name, age }) => {
-  const bornYear = () => new Date().getFullYear() - age
+  const increaseByOne = () => setCounter(counter + 1)
+  const decreaseByOne = () => setCounter(counter - 1)
+  const setToZero = () => setCounter(0)
 
   return (
     <div>
-      <p>
-        Hello {name}, you are {age} years old
-      </p>
-      <p>So you were probably born in {bornYear()}</p>
+      <Display counter={counter}/>
+      <Button
+        handleClick={increaseByOne}
+        text='plus'
+      />
+      <Button
+        handleClick={setToZero}
+        text='zero'
+      />
+      <Button
+        handleClick={decreaseByOne}
+        text='minus'
+      />
     </div>
   )
 }
+
 export default App
