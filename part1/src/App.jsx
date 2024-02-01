@@ -5,7 +5,8 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  const [all, setAll] = useState([])
+  const [all, setAll] = useState(0)
+  const [Positive, setPositive] = useState(0)
 
   const setToGood = () => {
     console.log('good', good)
@@ -31,6 +32,8 @@ const App = () => {
     </button>
   )
 
+
+
   return (
     <div>
 
@@ -38,13 +41,17 @@ const App = () => {
       <Button handleClick={() => setToGood(good + 1)} text="Good" />
       <Button handleClick={() => setToNeutral(neutral + 1)} text="Neutral" />
       <Button handleClick={() => setToBad(bad + 1)} text="Bad" />
+      <Button handleClick={() => setToPositive(neutral)} text="Positive" />
       <h1>stadistics</h1>
       <p>good {good}</p>
       <br />
       <p>neutral {neutral}</p>
       <br />
       <p>bad {bad}</p>
-      {}
+      <br />
+      <p>all {all}</p>
+      <br />
+      <p>Positive ({good / all * 100 }) %</p>
 
     </div>
   )
