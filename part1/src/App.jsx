@@ -1,14 +1,24 @@
 import { useState } from 'react'
 
 const Statistics = (props) => {
-
+console.log(props)
   return(
-<div>
-  <p>{props.nombre}{props.numero}</p>
-  <br />
-</div>
+    <div>
+      <p>{props.estadisttica.name}{props.estadisttica.numero}</p>
+      <br />
+    </div>
   )
 }
+
+const Statistics2 = (props) => {
+  console.log(props)
+    return(
+      <div>
+        <p>{props.cali} {props.pasto}</p>
+        <br />
+      </div>
+    )
+  }
 
 const App = () => {
   // guarda los clics de cada botón en su propio estado
@@ -42,8 +52,21 @@ const App = () => {
     </button>
   )
 
-  const Positive = ()
+  const course = {
 
+        name: 'good ',
+        numero: good
+
+        name: 'neutral ',
+        numero: neutral
+
+        name: 'bad ',
+        numero: bad
+
+        name: 'all ',
+        numero: all
+    
+  }
   return (
     <div>
 
@@ -53,10 +76,9 @@ const App = () => {
       <Button handleClick={() => setToBad(bad + 1)} text="Bad" />
       <h1>statistics</h1>
 
-      <Statistics nombre="good " numero={good}/>
-      <Statistics nombre="neutral " numero={neutral}/>
-      <Statistics nombre="bad " numero={bad}/>
-      <Statistics nombre="all " numero={all}/>
+      <Statistics estadisttica={course}/>
+      <Statistics2 cali="no" pasto="si"/>
+      
       <p>Positive ({ good / all * 100 }) %</p>
 
     </div>
