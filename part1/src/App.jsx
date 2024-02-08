@@ -53,9 +53,10 @@ const App = () => {
   )
 
   const course = {
-   parts[
+    parts: [{
         name: 'good ',
         numero: good
+    }
    ]
 
     
