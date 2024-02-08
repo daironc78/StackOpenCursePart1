@@ -53,18 +53,11 @@ const App = () => {
   )
 
   const course = {
-
+   parts[
         name: 'good ',
         numero: good
+   ]
 
-        name: 'neutral ',
-        numero: neutral
-
-        name: 'bad ',
-        numero: bad
-
-        name: 'all ',
-        numero: all
     
   }
   return (
@@ -79,7 +72,16 @@ const App = () => {
       <Statistics estadisttica={course}/>
       <Statistics2 cali="no" pasto="si"/>
       
-      <p>Positive ({ good / all * 100 }) %</p>
+      <p>Positive ({ good / all * 100 }) %
+      
+      name: 'neutral ',
+        numero: neutral
+
+        name: 'bad ',
+        numero: bad
+
+        name: 'all ',
+        numero: all</p>
 
     </div>
   )
