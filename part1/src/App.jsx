@@ -26,7 +26,6 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
   const [all, setAll] = useState(0)
-  const [text, number] = useState("")
 
   const setToGood = () => {
     console.log('good', good)
@@ -54,20 +53,11 @@ const App = () => {
 
   const course = {
 
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
+    
+        name: 'Fundamentals of React ',
+        numero: good
+      
+    
 
     
   }
