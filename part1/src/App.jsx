@@ -1,7 +1,19 @@
 import { useState } from 'react'
 
+const StatisticLine = (props) => {
+
+  return(
+    <div>
+      <p>{props.text} {props.value}</p>
+      <br />
+    </div>
+  )
+
+}
+
 const Statistics = (props) => {
   console.log(props)
+
     return(
       <div>
         <p>{props.cali} {props.pasto}</p>
@@ -10,6 +22,7 @@ const Statistics = (props) => {
     )
   }
 
+  
 const App = () => {
   // guarda los clics de cada botón en su propio estado
   const [good, setGood] = useState(0)
@@ -43,16 +56,26 @@ const App = () => {
 
   const positiveResult = good / all * 100;
 
-  const course = {
-
-    
-        name: 'Fundamentals of React ',
-        numero: good,
-      
-    
-
-    
+  const History = (props) => {
+    if (props.good === 0) {
+      return (
+        <div>
+          No feedback given
+        </div>
+      )
+    }
+    return (
+      <div>
+        <Statistics cali="good" pasto={good}/>
+        <Statistics cali="neutral" pasto={neutral}/>
+        <Statistics cali="bad" pasto={bad}/>
+        <Statistics cali="all" pasto={all}/>
+        <Statistics cali="positive" pasto={positiveResult}/>
+      </div>
+    )
   }
+
+
   return (
     <div>
 
@@ -61,15 +84,13 @@ const App = () => {
       <Button handleClick={() => setToNeutral(neutral + 1)} text="Neutral" />
       <Button handleClick={() => setToBad(bad + 1)} text="Bad" />
       <h1>statistics</h1>
-
-      <Statistics cali="good" pasto={good}/>
-      <Statistics cali="neutral" pasto={neutral}/>
-      <Statistics cali="bad" pasto={bad}/>
-      <Statistics cali="all" pasto={all}/>
-      <Statistics cali="positive" pasto={positiveResult}/>
-
+      <History good={good}/>
     </div>
   )
+
+
 }
+
+
 
 export default App
