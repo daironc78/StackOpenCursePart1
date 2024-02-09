@@ -24,7 +24,7 @@ const Statistics = (props) => {
 
   
 const App = () => {
-  // guarda los clics de cada botón en su propio estado
+
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
@@ -56,13 +56,14 @@ const App = () => {
 
   const positiveResult = good / all * 100;
 
-  const History = (props) => {
-    if (props.good === 0) {
+  const History = () => {
+    if ((good === 0) && (neutral === 0) && (bad === 0)) {
       return (
         <div>
           No feedback given
         </div>
       )
+      
     }
     return (
       <div>
