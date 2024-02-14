@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ReactDOM from "react-dom";
+
 
 const StatisticLine = (props) => {
 
@@ -11,12 +13,16 @@ const StatisticLine = (props) => {
 
 }
 
-const Statistics = (props) => {
-  console.log(props)
+const Statistics = ({ good, neutral, bad, all, positiveResult}) => {
 
-    return(
+
+    return( 
       <div>
-        <p>{props.cali} {props.pasto}</p>
+        <StatisticLine text="good" value={good}/>
+        <StatisticLine text="neutral" value={neutral}/>
+        <StatisticLine text="bad" value={bad}/>
+        <StatisticLine text="all" value={all}/>
+        <StatisticLine text="positive" value={positiveResult}/>
         <br />
       </div>
     )
@@ -67,11 +73,12 @@ const App = () => {
     }
     return (
       <div>
-        <Statistics cali="good" pasto={good}/>
-        <Statistics cali="neutral" pasto={neutral}/>
-        <Statistics cali="bad" pasto={bad}/>
-        <Statistics cali="all" pasto={all}/>
-        <Statistics cali="positive" pasto={positiveResult}/>
+        <Statistics 
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        all={all}
+        positiveResult={positiveResult}/>
       </div>
     )
   }
