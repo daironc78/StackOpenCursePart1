@@ -7,24 +7,35 @@ const StatisticLine = (props) => {
   return(
     <div>
       <p>{props.text} {props.value}</p>
-      <br />
+      
     </div>
   )
 
 }
 
-const Statistics = ({ good, neutral, bad, all, positiveResult}) => {
+const Statistics = ({ good, neutral, bad, all, average, positiveResult}) => {
 
 
     return( 
-      <div>
-        <StatisticLine text="good" value={good}/>
-        <StatisticLine text="neutral" value={neutral}/>
-        <StatisticLine text="bad" value={bad}/>
-        <StatisticLine text="all" value={all}/>
-        <StatisticLine text="positive" value={positiveResult}/>
-        <br />
-      </div>
+      
+        <table>
+        <tbody>
+        <tr>
+        <td>
+        <div>
+        <StatisticLine text="good" />                                       <StatisticLine value={good}/>
+        <StatisticLine text="neutral" />                     <StatisticLine value={neutral}/>
+        <StatisticLine text="bad" />                             <StatisticLine value={bad}/>
+        <StatisticLine text="all" />               <StatisticLine value={all}/>
+        <StatisticLine text="average" />                         <StatisticLine value={average}/>
+        <StatisticLine text="positive" />             <StatisticLine value={positiveResult}/>
+        </div>
+        </td>
+        </tr>
+        </tbody>
+        
+        </table>
+      
     )
   }
 
@@ -62,6 +73,8 @@ const App = () => {
 
   const positiveResult = good / all * 100;
 
+  const average = good / all;
+
   const History = () => {
     if ((good === 0) && (neutral === 0) && (bad === 0)) {
       return (
@@ -78,6 +91,7 @@ const App = () => {
         neutral={neutral}
         bad={bad}
         all={all}
+        average={average}
         positiveResult={positiveResult}/>
       </div>
     )
