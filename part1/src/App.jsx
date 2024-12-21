@@ -9,40 +9,40 @@ const App = () => {
 
   const Content = () => {
 
-    return(
+    return (
       <div>
         <p>{part1}, {exercises1}</p>
-            <p>{part2}, {exercises2}</p>
-                <p>{part3}, {exercises3}</p>
-              </div>
-    )}
+        <p>{part2}, {exercises2}</p>
+        <p>{part3}, {exercises3}</p>
+      </div>
+    )
+  }
 
-    const Total = () => {
+  const Total = () => {
 
-      return(
-        <div>
-          <p>Number of exercises is {exercises1 + exercises2 + exercises3}</p>
-        </div>
-      )}
+    return (
+      <div>
+        <p>Number of exercises is {exercises1 + exercises2 + exercises3}</p>
+      </div>
+    )
+  }
 
-      const Header = () => {
+  const Header = () => {
 
-        return(
-          <div>
-            <p>{course}</p>
-          </div>
-        )}
+    return (
+      <div>
+        <p>{course}</p>
+      </div>
+    )
+  }
 
   return (
     <div>
-    <Header course={course} />
-    <Content  />
-    <Total  />
-  </div>
-)
-
-
+      <Header course={course} />
+      <Content />
+      <Total />
+    </div>
+  )
 }
-
 
 export default App
