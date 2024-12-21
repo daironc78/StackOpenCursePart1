@@ -1,45 +1,33 @@
 import { useState } from 'react'
 import ReactDOM from "react-dom";
-
+import './App.css';
 
 const StatisticLine = (props) => {
 
-  return(
-    <div>
-      <p>{props.text} {props.value}</p>
-      
-    </div>
+  return (
+    <tr>
+      <td class="statisticline">{props.text}</td>
+      <td class="statisticline">{props.value}</td>
+    </tr>
   )
 
 }
 
-const Statistics = ({ good, neutral, bad, all, average, positiveResult}) => {
+const Statistics = ({ good, neutral, bad, all, average, positiveResult }) => {
+  return (
+    <table>
+      <tbody>
+          <StatisticLine text="good" value={good}/> 
+          <StatisticLine text="neutral" value={neutral} />
+          <StatisticLine text="bad" value={bad} />
+          <StatisticLine text="all" value={all} />
+          <StatisticLine text="average" value={average} />
+          <StatisticLine text="positive" value={positiveResult} />
+      </tbody>
+    </table>
+  )
+}
 
-
-    return( 
-      
-        <table>
-        <tbody>
-        <tr>
-        <td>
-        <div>
-        <StatisticLine text="good" />                                       <StatisticLine value={good}/>
-        <StatisticLine text="neutral" />                     <StatisticLine value={neutral}/>
-        <StatisticLine text="bad" />                             <StatisticLine value={bad}/>
-        <StatisticLine text="all" />               <StatisticLine value={all}/>
-        <StatisticLine text="average" />                         <StatisticLine value={average}/>
-        <StatisticLine text="positive" />             <StatisticLine value={positiveResult}/>
-        </div>
-        </td>
-        </tr>
-        </tbody>
-        
-        </table>
-      
-    )
-  }
-
-  
 const App = () => {
 
   const [good, setGood] = useState(0)
@@ -67,12 +55,11 @@ const App = () => {
 
   const Button = (props) => (
     <button onClick={props.handleClick}>
-    {props.text}
+      {props.text}
     </button>
   )
 
   const positiveResult = good / all * 100;
-
   const average = good / all;
 
   const History = () => {
@@ -82,21 +69,20 @@ const App = () => {
           No feedback given
         </div>
       )
-      
     }
+
     return (
       <div>
-        <Statistics 
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        all={all}
-        average={average}
-        positiveResult={positiveResult}/>
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          all={all}
+          average={average}
+          positiveResult={positiveResult} />
       </div>
     )
   }
-
 
   return (
     <div>
@@ -106,14 +92,9 @@ const App = () => {
       <Button handleClick={() => setToNeutral(neutral + 1)} text="Neutral" />
       <Button handleClick={() => setToBad(bad + 1)} text="Bad" />
       <h1>statistics</h1>
-      <History good={good}/>
+      <History good={good} />
     </div>
   )
-
-
 }
-
-
-
 
 export default App
