@@ -1,11 +1,8 @@
 const Part = (props) => {
-
   return (
-    <div>
-      <p>
-       {props.name}, {props.exercises}
-      </p>
-    </div>
+    <p>
+      {props.name}, {props.exercises}
+    </p>
   )
 }
 
@@ -24,55 +21,42 @@ const App = () => {
       {
         name: 'State of a component',
         exercises: 14
+      },
+      {
+        name: 'State of a component 2',
+        exercises: 16
       }
     ]
   }
 
-
-
-
   let exer1 = 0
-  let exername
   course.parts.map(value => exer1 += value.exercises)
 
-  course.parts.map(value => exername = value.name)
-  
   const Header = () => {
     return (
-    <div>
-    
-    {course.name}
-    
-    </div>
+      <div>
+        {course.name}
+      </div>
     )
   }
-  
+
   const Total = () => {
-
-    
-
     return (
-    <div>
-    
-           <p>Total exercises is {exer1} </p>
-    
-    </div>
+      <div>
+        <p>Total exercises is {exer1} </p>
+      </div>
     )
   }
-  
+
   const Content = () => {
-    
     return (
-    
-    <div>
-      {
-        course.parts.map(value => <Part name={ value.name } exercises={ value.exercises }/>)
-      }
-    </div>
-    
+      <div>
+        {
+          course.parts.map(value => <Part name={value.name} exercises={value.exercises} />)
+        }
+      </div>
     )
   }
-
 
   return (
     <div>
@@ -81,7 +65,6 @@ const App = () => {
       <Total parts={course} />
     </div>
   )
-  
-    }
+}
 
 export default App
